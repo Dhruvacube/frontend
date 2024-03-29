@@ -1,4 +1,5 @@
 import { Html, Head, Main, NextScript } from "next/document";
+import Script from "next/script";
 
 export default function Document() {
   return (
@@ -34,6 +35,13 @@ export default function Document() {
         <meta name="copyright" content="Dhruva Shaw" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
+
+        <Script strategy="beforeInteractive" id="theme-toggler">
+          {`if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          } else {
+              document.documentElement.classList.remove('dark')
+          }`}
+        </Script>
       </Head>
       <body>
         <Main />
