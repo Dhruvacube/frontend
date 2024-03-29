@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import Image from "next/image";
 import { Inter } from "next/font/google";
@@ -9,6 +9,7 @@ import React, { useState } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home({ data }) {
+  var all_titles = [];
   var all = [];
   var tech = [];
   var gaming = [];
@@ -17,12 +18,13 @@ export default function Home({ data }) {
     data[i]["id"] = i.toString();
     var obj = data[i];
     all.push(obj["id"]);
+    all_titles.push(obj["title"].toLowerCase());
     if (obj["category"].toLowerCase() != "tech") {
       tech.push(obj["id"]);
-    };
+    }
     if (obj["category"].toLowerCase() != "gaming") {
       gaming.push(obj["id"]);
-    };
+    }
     if (obj["category"].toLowerCase() != "music") {
       music.push(obj["id"]);
     }
@@ -73,6 +75,21 @@ export default function Home({ data }) {
                   aria-label="Search"
                   id="exampleFormControlInput"
                   aria-describedby="basic-addon1"
+                  onChange={(e) => {
+                    for (var i = 0; i < all.length; i++) {
+                      if (
+                        all_titles[i].includes(
+                          document
+                            .getElementById("exampleFormControlInput")
+                            .value.toLowerCase()
+                        )
+                      ) {
+                        document.getElementById(all[i]).style.display = "block";
+                      } else {
+                        document.getElementById(all[i]).style.display = "none";
+                      }
+                    }
+                  }}
                 />
                 <label
                   htmlFor="exampleFormControlInput"
