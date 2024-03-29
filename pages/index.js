@@ -62,7 +62,7 @@ export default function Home({ data }) {
             <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
               IEEE GEMS Web Team Frontend Task
             </h1>
-            <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+            <div className="lg:w-2/3 mx-auto leading-relaxed text-base">
               <div
                 className="relative flex"
                 data-twe-input-wrapper-init
@@ -109,7 +109,9 @@ export default function Home({ data }) {
                   </span>
                 </button>
               </div>
-            </p>
+            </div>
+            <br/>
+            Hover over the image to view more details about the video.
             <br />
             <div>
               <button
@@ -202,7 +204,7 @@ export default function Home({ data }) {
                     <h1 className="title-font text-lg font-medium text-gray-900 mb-3">
                       {data.title}
                     </h1>
-                    <p className="leading-relaxed">
+                    <p className="leading-relaxed" suppressHydrationWarning={true}>
                       <i className="bx bx-hourglass"></i> {data.duration}
                       <br />
                       <i className="bx bx-station"></i> {data.views} views{" "}
