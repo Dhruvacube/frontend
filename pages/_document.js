@@ -33,6 +33,7 @@ export default function Document() {
         <meta name="author" content="Dhruva Shaw" />
         <meta name="copyright" content="Dhruva Shaw" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
+        <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'/>
       </Head>
       <body>
         <Main />
